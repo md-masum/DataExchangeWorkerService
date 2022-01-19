@@ -4,7 +4,7 @@ namespace DataExchangeWorkerService.Models
 {
     public class ClientAModel
     {
-        public int Id { get; set; }
+        public int ClaimId { get; set; }
         public string BaName { get; set; }
         public string MobileNumber { get; set; }
         public DateTime ClaimDate { get; set; }

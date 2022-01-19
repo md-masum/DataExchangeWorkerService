@@ -48,7 +48,7 @@ namespace DataExchangeWorkerService.Services
                 switch (clientName)
                 {
                     case "ClientA":
-                        var fileData = await ExtractDataFromFile<ClientAModel>(file.FullName, 1);
+                        var fileData = ExtractDataFromFile<ClientAModel>(file.FullName, 2);
                         var filePath = await LoadData<ClientAModel>(fileData, clientName, file.FullName);
                         break;
                     case "ClientB":
@@ -64,10 +64,10 @@ namespace DataExchangeWorkerService.Services
             }
         }
 
-        public async Task<IList<T>> ExtractDataFromFile<T>(string filePath, int startRow)
+        public IList<T> ExtractDataFromFile<T>(string filePath, int startRow)
         {
             Console.WriteLine("Extract Data");
-            return default;
+            return ExcelHelper.ReadFile<T>(filePath, startRow);
         }
 
         // public async Task<IList<T>> TransformData<T>(List<T> data)
